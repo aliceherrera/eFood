@@ -1,8 +1,22 @@
+import Button from './components/Button'
+import ButtonSecondary from './components/ButtonSecondary'
+import Header from './components/Header'
+import Tag from './components/Tag'
+import { GlobalStyle } from './styles'
+
 function App() {
   return (
-    <div>
-      <h1>Olá mundo</h1>
-    </div>
+    <>
+      <GlobalStyle />
+      <Header />
+      <Tag>teste da tag</Tag>
+      <Button type="button" title="teste botão">
+        Nome do botão
+      </Button>
+      <ButtonSecondary type="button" title="teste botão secundario">
+        Nome do outro botão
+      </ButtonSecondary>
+    </>
   )
 }
 
