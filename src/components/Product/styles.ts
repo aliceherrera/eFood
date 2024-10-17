@@ -7,7 +7,6 @@ export const Card = styled.div`
   background-color: ${colors.white};
   border: 1px solid ${colors.salmon};
   position: relative;
-  margin: 24px 0;
 `
 export const TitleContainer = styled.div`
   display: flex;

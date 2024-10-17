@@ -1,17 +1,15 @@
-import Button from './components/Button'
-import ButtonSecondary from './components/ButtonSecondary'
-import Header from './components/Header'
-import Tag from './components/Tag'
-import ProductsList from './ProductsList'
+import { BrowserRouter } from 'react-router-dom'
 import { GlobalStyle } from './styles'
+import Rotas from './routes'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <Header />
-      <ProductsList />
-    </>
+      <Rotas />
+      <Footer />
+    </BrowserRouter>
   )
 }
 
