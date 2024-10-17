@@ -25,7 +25,7 @@ export const Description = styled.p`
   font-size: 14px;
 `
 export const Container = styled.div`
-  padding: 8px;
+  padding: 8px 8px 0;
 `
 export const Tags = styled.div`
   position: absolute;

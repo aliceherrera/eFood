@@ -1,38 +1,21 @@
+import Food from '../../models/food'
 import Item from '../Item'
 import { List } from './styles'
 
-const ItensList = () => (
+export type Props = {
+  prato: Food[]
+}
+
+const ItensList = ({ prato }: Props) => (
   <List className="container">
-    <Item
-      image="//placehold.it/304x167"
-      title="Pizza Marguerita"
-      description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-    />
-    <Item
-      image="//placehold.it/304x167"
-      title="Pizza Marguerita"
-      description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-    />
-    <Item
-      image="//placehold.it/304x167"
-      title="Pizza Marguerita"
-      description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-    />
-    <Item
-      image="//placehold.it/304x167"
-      title="Pizza Marguerita"
-      description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-    />
-    <Item
-      image="//placehold.it/304x167"
-      title="Pizza Marguerita"
-      description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-    />
-    <Item
-      image="//placehold.it/304x167"
-      title="Pizza Marguerita"
-      description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-    />
+    {prato.map((food) => (
+      <Item
+        key={food.id}
+        image={food.image}
+        title={food.title}
+        description={food.description}
+      />
+    ))}
   </List>
 )
 
