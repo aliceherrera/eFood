@@ -28,7 +28,7 @@ const Product = ({ image, title, rating, description, info }: Props) => (
         </S.Rating>
       </S.TitleContainer>
       <S.Description>{description}</S.Description>
-      <ButtonSecondary type="button" title="Saiba mais">
+      <ButtonSecondary type="link" title="Saiba mais" to="/restaurante">
         Saiba mais
       </ButtonSecondary>
     </S.Container>

@@ -14,7 +14,7 @@ const Item = ({ image, title, description }: Props) => (
       <S.Title>{title}</S.Title>
 
       <S.Description>{description}</S.Description>
-      <Button type="button" title="Saiba mais">
+      <Button type="link" title="Saiba mais">
         Adicionar ao carrinho
       </Button>
     </S.Container>
