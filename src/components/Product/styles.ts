@@ -34,4 +34,7 @@ export const Tags = styled.div`
 `
 export const Image = styled.img`
   width: 100%;
+  max-width: 472px;
+  max-height: 216px;
+  object-fit: cover;
 `

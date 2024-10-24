@@ -8,7 +8,7 @@ export const List = styled.ul`
   padding: 56px 0;
 `
 export const Modal = styled.div`
-  display: flex;
+  display: none;
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
@@ -21,6 +21,10 @@ export const Modal = styled.div`
   top: 280px;
   left: 0;
   right: 0;
+
+  &.visivel {
+    display: flex;
+  }
 `
 
 export const ModalContent = styled.div`
