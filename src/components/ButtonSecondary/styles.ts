@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import { ButtonContainer, ButtonLink } from '../Button/styles'
+import { ButtonLink } from '../Button/styles'
 
 export const Secondary = styled(ButtonLink)`
   background-color: ${colors.salmon};

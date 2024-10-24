@@ -7,11 +7,12 @@ export const ButtonContainer = styled.button`
   color: ${colors.salmon};
   font-size: 14px;
   font-weight: 700;
-  padding: 4px 0;
-  display: block;
-  width: 100%;
   margin: 8px 0;
   border: none;
+  padding: 4px 6px;
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
 `
 
 export const ButtonLink = styled(Link)`
