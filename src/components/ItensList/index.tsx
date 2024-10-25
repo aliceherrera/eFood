@@ -1,45 +1,34 @@
+import { useState } from 'react'
 import { Food } from '../../pages/Home'
-import Item from '../Item'
-import { Close, Container, Infos, List, Modal, ModalContent } from './styles'
+import {
+  Close,
+  Container,
+  Infos,
+  List,
+  Modal,
+  ModalContent,
+  Item
+} from './styles'
 import pizza from '../../assets/images/pizza.png'
 import close from '../../assets/images/close 1.png'
-
 import Button from '../Button'
-import { useState } from 'react'
 
 export type Props = {
   prato: Food[]
 }
 
-interface ModalState extends Food {
-  isVisible: boolean
-}
-
 const ItensList = ({ prato }: Props) => {
-  const [modal, setModal] = useState<ModalState>({
-    isVisible: false,
-    descricao: '',
-    foto: '',
-    id: 0,
-    nome: '',
-    porcao: '',
-    preco: 0
-  })
+  const [modalestaAberto, setModalEstaAberto] = useState(false)
 
   return (
     <>
       <List className="container">
         {prato.map((food) => (
-          <Item
-            key={food.id}
-            image={food.foto}
-            title={food.nome}
-            description={food.descricao}
-          />
+          <Item onClick={() => setModalEstaAberto(true)} key={food.id} />
         ))}
       </List>
       <Container>
-        <Modal className={modal.isVisible ? 'visivel' : ''}>
+        <Modal className={modalestaAberto ? 'visivel' : ''}>
           <ModalContent>
             <img src={pizza} alt="pizza" />
             <Infos>

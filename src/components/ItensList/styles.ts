@@ -15,8 +15,6 @@ export const Modal = styled.div`
   padding: 32px;
   background-color: ${colors.salmon};
   color: ${colors.white};
-  /* align-items: center;
-  justify-content: center; */
   position: fixed;
   top: 280px;
   left: 0;
@@ -64,3 +62,4 @@ export const Container = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.73);
 `
+export const Item = styled.li``
