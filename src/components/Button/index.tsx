@@ -17,7 +17,7 @@ const Button = ({ type, title, to, onClick, children }: Props) => {
     )
   }
   return (
-    <ButtonLink type="link" title={title} to={to as string}>
+    <ButtonLink type="link" title={title} to={to as string} onClick={onClick}>
       {children}
     </ButtonLink>
   )
