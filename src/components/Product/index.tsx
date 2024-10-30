@@ -4,6 +4,7 @@ import ButtonSecondary from '../ButtonSecondary'
 import Tag from '../Tag'
 
 type Props = {
+  id: number
   image: string
   title: string
   rating: number
@@ -11,7 +12,7 @@ type Props = {
   infos: string[]
 }
 
-const Product = ({ image, title, rating, description, infos }: Props) => {
+const Product = ({ id, image, title, rating, description, infos }: Props) => {
   const getDescricao = (descricao: string) => {
     if (descricao.length > 250) {
       return descricao.slice(0, 247) + '...'
@@ -36,7 +37,11 @@ const Product = ({ image, title, rating, description, infos }: Props) => {
           </S.Rating>
         </S.TitleContainer>
         <S.Description>{getDescricao(description)}</S.Description>
-        <ButtonSecondary type="link" title="Saiba mais" to="/restaurante">
+        <ButtonSecondary
+          type="link"
+          title="Saiba mais"
+          to={`/restaurantes/${id}`}
+        >
           Saiba mais
         </ButtonSecondary>
       </S.Container>

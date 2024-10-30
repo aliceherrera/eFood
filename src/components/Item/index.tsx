@@ -1,53 +1,28 @@
 import Button from '../Button'
 import * as S from './styles'
-import pizza from '../../assets/images/pizza.png'
-import sushi from '../../assets/images/sushi.png'
 import close from '../../assets/images/close 1.png'
 import { useState } from 'react'
+import { Food } from '../../pages/Home'
 
 type Props = {
-  image: string
-  name: string
-  description: string
-  portion: string
+  itens: Food[]
 }
 
-type MenuItem = {
-  image: string
-  name: string
-  description: string
-  portion: string
+interface ModalState extends Food {
+  isVisible: boolean
 }
 
-const mock: MenuItem[] = [
-  {
-    name: 'teste 01',
-    description: 'testando 123 ihul',
-    image: pizza,
-    portion: 'serve 2 pessoas'
-  },
-  {
-    name: 'teste 02',
-    description: 'testando 123 olé',
-    image: sushi,
-    portion: 'serve 2 pessoas'
-  },
-  {
-    name: 'teste 03',
-    description: 'testando 123 blabla',
-    image: pizza,
-    portion: 'serve 2 pessoas'
-  },
-  {
-    name: 'teste 04',
-    description: 'testando 123 show',
-    image: pizza,
-    portion: 'serve 2 pessoas'
-  }
-]
+const Item = ({ itens }: Props) => {
+  const [modal, setModal] = useState<ModalState>({
+    isVisible: false,
+    foto: '',
+    descricaoPrato: '',
+    id: 0,
+    nome: '',
+    porcao: '',
+    preco: 0
+  })
 
-const Item = ({ image, name, description, portion }: Props) => {
-  const [modalIsVisible, setModalIsVisible] = useState(false)
   const [ModalImage, setModalImage] = useState('')
   const [ModalName, setModalName] = useState('')
   const [ModalDescription, setModalDescription] = useState('')
@@ -56,22 +31,30 @@ const Item = ({ image, name, description, portion }: Props) => {
   return (
     <>
       <S.List className="container">
-        {mock.map((prato) => (
-          <S.Card key={prato.name}>
+        {itens.map((comida) => (
+          <S.Card key={comida.id}>
             <S.Container>
-              <S.Image src={prato.image} alt={prato.name} />
-              <S.Title>{prato.name}</S.Title>
+              <S.Image src={comida.foto} alt={comida.nome} />
+              <S.Title>{comida.nome}</S.Title>
 
-              <S.Description>{prato.description}</S.Description>
+              <S.Description>{comida.descricaoPrato}</S.Description>
               <Button
                 type="link"
                 title="Saiba mais"
                 onClick={() => {
-                  setModalIsVisible(true)
-                  setModalImage(prato.image)
-                  setModalName(prato.name)
-                  setModalDescription(prato.description)
-                  setModalPortion(prato.portion)
+                  setModal({
+                    foto: comida.foto,
+                    descricaoPrato: comida.descricaoPrato,
+                    id: comida.id,
+                    nome: comida.nome,
+                    porcao: comida.porcao,
+                    preco: comida.preco,
+                    isVisible: true
+                  })
+                  setModalImage(comida.foto)
+                  setModalName(comida.nome)
+                  setModalDescription(comida.descricaoPrato)
+                  setModalPortion(comida.porcao)
                 }}
               >
                 Mais detalhes
@@ -80,7 +63,7 @@ const Item = ({ image, name, description, portion }: Props) => {
           </S.Card>
         ))}
       </S.List>
-      <S.ContainerModal className={modalIsVisible ? 'visivel' : ''}>
+      <S.ContainerModal className={modal.isVisible ? 'visivel' : ''}>
         <S.Modal>
           <S.ModalContent>
             <img src={ModalImage} alt="pizza" />
@@ -94,7 +77,17 @@ const Item = ({ image, name, description, portion }: Props) => {
               <S.Close
                 src={close}
                 alt="fechar"
-                onClick={() => setModalIsVisible(false)}
+                onClick={() =>
+                  setModal({
+                    foto: '',
+                    descricaoPrato: '',
+                    id: 0,
+                    nome: '',
+                    porcao: '',
+                    preco: 0,
+                    isVisible: false
+                  })
+                }
               />
             </S.Infos>
           </S.ModalContent>

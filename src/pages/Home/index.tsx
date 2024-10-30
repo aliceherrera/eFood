@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import ProductsList from '../../components/ProductsList'
 
-export type Food = {
+export interface Food {
   foto: string
   preco: number
   id: number
   nome: string
-  descricao: string
+  descricaoPrato: string
   porcao: string
 }
 

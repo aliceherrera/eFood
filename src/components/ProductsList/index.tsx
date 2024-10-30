@@ -27,6 +27,7 @@ const ProductsList = ({ restaurants }: Props) => {
         {restaurants.map((restaurant) => (
           <Product
             key={restaurant.id}
+            id={restaurant.id}
             image={restaurant.capa}
             title={restaurant.titulo}
             rating={restaurant.avaliacao}
