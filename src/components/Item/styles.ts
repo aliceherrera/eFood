@@ -39,8 +39,6 @@ export const Modal = styled.div`
   padding: 32px;
   background-color: ${colors.salmon};
   color: ${colors.white};
-  /* align-items: center;
-  justify-content: center; */
   position: fixed;
   top: 280px;
   left: 0;

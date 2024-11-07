@@ -16,7 +16,7 @@ const Item = ({ itens }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     foto: '',
-    descricaoPrato: '',
+    descricao: '',
     id: 0,
     nome: '',
     porcao: '',
@@ -27,6 +27,21 @@ const Item = ({ itens }: Props) => {
   const [ModalName, setModalName] = useState('')
   const [ModalDescription, setModalDescription] = useState('')
   const [ModalPortion, setModalPortion] = useState('')
+  const [ModalPrice, setModalPrice] = useState(0)
+
+  const formataPreco = (preco: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 160) {
+      return descricao.slice(0, 157) + '...'
+    }
+    return descricao
+  }
 
   return (
     <>
@@ -37,7 +52,7 @@ const Item = ({ itens }: Props) => {
               <S.Image src={comida.foto} alt={comida.nome} />
               <S.Title>{comida.nome}</S.Title>
 
-              <S.Description>{comida.descricaoPrato}</S.Description>
+              <S.Description>{getDescricao(comida.descricao)}</S.Description>
               <Button
                 key={comida.id}
                 type="link"
@@ -45,7 +60,7 @@ const Item = ({ itens }: Props) => {
                 onClick={() => {
                   setModal({
                     foto: comida.foto,
-                    descricaoPrato: comida.descricaoPrato,
+                    descricao: comida.descricao,
                     id: comida.id,
                     nome: comida.nome,
                     porcao: comida.porcao,
@@ -54,8 +69,9 @@ const Item = ({ itens }: Props) => {
                   })
                   setModalImage(comida.foto)
                   setModalName(comida.nome)
-                  setModalDescription(comida.descricaoPrato)
+                  setModalDescription(comida.descricao)
                   setModalPortion(comida.porcao)
+                  setModalPrice(comida.preco)
                 }}
               >
                 Mais detalhes
@@ -73,7 +89,7 @@ const Item = ({ itens }: Props) => {
               <p>{ModalDescription}</p>
               <p>{ModalPortion}</p>
               <Button type="button" title="Adicionar ao carrinho">
-                Adicionar ao carrinho - R$ 60,90
+                Adicionar ao carrinho - {formataPreco(ModalPrice)}
               </Button>
               <S.Close
                 src={close}
@@ -81,7 +97,7 @@ const Item = ({ itens }: Props) => {
                 onClick={() =>
                   setModal({
                     foto: '',
-                    descricaoPrato: '',
+                    descricao: '',
                     id: 0,
                     nome: '',
                     porcao: '',

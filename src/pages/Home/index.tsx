@@ -8,7 +8,7 @@ export interface Food {
   preco: number
   id: number
   nome: string
-  descricaoPrato: string
+  descricao: string
   porcao: string
 }
 
