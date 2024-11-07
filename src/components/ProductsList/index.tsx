@@ -1,13 +1,13 @@
-import { Restaurant } from '../../pages/Home'
+import { RestaurantProfile } from '../../pages/Home'
 import Product from '../Product'
 import { List } from './styles'
 
 export type Props = {
-  restaurants: Restaurant[]
+  restaurants: RestaurantProfile[]
 }
 
 const ProductsList = ({ restaurants }: Props) => {
-  const getRestaurantTags = (restaurant: Restaurant) => {
+  const getRestaurantTags = (restaurant: RestaurantProfile) => {
     const tags = []
 
     if (restaurant.tipo) {

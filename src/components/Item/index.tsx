@@ -1,7 +1,7 @@
+import { useState } from 'react'
 import Button from '../Button'
 import * as S from './styles'
 import close from '../../assets/images/close 1.png'
-import { useState } from 'react'
 import { Food } from '../../pages/Home'
 
 type Props = {
@@ -32,13 +32,14 @@ const Item = ({ itens }: Props) => {
     <>
       <S.List className="container">
         {itens.map((comida) => (
-          <S.Card key={comida.id}>
+          <S.Card>
             <S.Container>
               <S.Image src={comida.foto} alt={comida.nome} />
               <S.Title>{comida.nome}</S.Title>
 
               <S.Description>{comida.descricaoPrato}</S.Description>
               <Button
+                key={comida.id}
                 type="link"
                 title="Saiba mais"
                 onClick={() => {

@@ -12,7 +12,7 @@ export interface Food {
   porcao: string
 }
 
-export type Restaurant = {
+export type RestaurantProfile = {
   id: number
   titulo: string
   destacado: boolean
@@ -24,7 +24,7 @@ export type Restaurant = {
 }
 
 const Home = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const [restaurants, setRestaurants] = useState<RestaurantProfile[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
