@@ -24,7 +24,11 @@ const Restaurant = () => {
   return (
     <>
       <RestaurantHeader />
-      <RestaurantBanner />
+      <RestaurantBanner
+        capa={pratos.capa}
+        tipo={pratos.tipo}
+        titulo={pratos.titulo}
+      />
       <Item itens={pratos.cardapio} key={id} />
     </>
   )
