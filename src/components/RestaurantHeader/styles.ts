@@ -8,3 +8,9 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
 `
+
+export const ButtonCart = styled.div`
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+`

@@ -3,6 +3,8 @@ import Button from '../Button'
 import * as S from './styles'
 import close from '../../assets/images/close 1.png'
 import { Food } from '../../pages/Home'
+import { useDispatch } from 'react-redux'
+import { add } from '../../store/reducers/cart'
 
 type Props = {
   itens: Food[]
@@ -22,6 +24,12 @@ const Item = ({ itens }: Props) => {
     porcao: '',
     preco: 0
   })
+
+  // const dispatch = useDispatch()
+
+  // const addToCart = () => {
+  //   dispatch(add())
+  // }
 
   const [ModalImage, setModalImage] = useState('')
   const [ModalName, setModalName] = useState('')
@@ -88,7 +96,11 @@ const Item = ({ itens }: Props) => {
               <h2>{ModalName}</h2>
               <p>{ModalDescription}</p>
               <p>{ModalPortion}</p>
-              <Button type="button" title="Adicionar ao carrinho">
+              <Button
+                // onClick={addToCart}
+                type="button"
+                title="Adicionar ao carrinho"
+              >
                 Adicionar ao carrinho - {formataPreco(ModalPrice)}
               </Button>
               <S.Close
