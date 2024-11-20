@@ -13,6 +13,7 @@ export const ButtonContainer = styled.button`
   display: inline-block;
   width: auto;
   text-decoration: none;
+  cursor: pointer;
 `
 
 export const ButtonLink = styled(Link)`
@@ -27,4 +28,5 @@ export const ButtonLink = styled(Link)`
   border: none;
   text-decoration: none;
   text-align: center;
+  cursor: pointer;
 `

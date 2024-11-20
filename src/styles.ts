@@ -4,7 +4,8 @@ export const colors = {
   sand: '#FFF8F2',
   beige: '#FFEBD9',
   salmon: '#E66767',
-  white: '#FFF'
+  white: '#FFF',
+  black: '#000'
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -13,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
+  list-style: none;
  }
 
  body {
