@@ -14,6 +14,13 @@ interface ModalState extends Food {
   isVisible: boolean
 }
 
+export const formataPreco = (preco: number) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
 const Item = ({ itens }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
@@ -28,7 +35,7 @@ const Item = ({ itens }: Props) => {
   // const dispatch = useDispatch()
 
   // const addToCart = () => {
-  //   dispatch(add())
+  //   dispatch(add(itens))
   // }
 
   const [ModalImage, setModalImage] = useState('')
@@ -36,13 +43,6 @@ const Item = ({ itens }: Props) => {
   const [ModalDescription, setModalDescription] = useState('')
   const [ModalPortion, setModalPortion] = useState('')
   const [ModalPrice, setModalPrice] = useState(0)
-
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
 
   const getDescricao = (descricao: string) => {
     if (descricao.length > 160) {
