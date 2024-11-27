@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
-export const List = styled.ul`
+export const List = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   padding: 56px 0;
 `
 
-export const Card = styled.div`
+export const Card = styled.li`
   max-width: 320px;
   width: 100%;
   background-color: ${colors.salmon};
@@ -80,7 +80,7 @@ export const ContainerModal = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
+  background-color: rgba(0, 0, 0, 0.2);
   display: none;
 
   &.visivel {
