@@ -1,11 +1,19 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const List = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   padding: 56px 0;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Card = styled.li`
@@ -14,6 +22,10 @@ export const Card = styled.li`
   background-color: ${colors.salmon};
   color: ${colors.beige};
   display: inline-block;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 425px;
+  }
 `
 export const Title = styled.h2`
   font-size: 16px;
@@ -43,6 +55,10 @@ export const Modal = styled.div`
   top: 280px;
   left: 0;
   right: 0;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 90%;
+  }
 `
 
 export const ModalContent = styled.div`
@@ -62,9 +78,24 @@ export const ModalContent = styled.div`
     font-size: 14px;
     line-height: 22px;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+
+    > img {
+      max-width: 400px;
+      width: 100%;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+  }
 `
 export const Infos = styled.div`
   margin-left: 24px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-left: 0;
+  }
 `
 export const Close = styled.img`
   position: absolute;
