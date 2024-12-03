@@ -4,7 +4,7 @@ import * as S from './styles'
 import close from '../../assets/images/close 1.png'
 import { Food } from '../../pages/Home'
 import { useDispatch } from 'react-redux'
-import { add } from '../../store/reducers/cart'
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
   itens: Food[]
@@ -32,6 +32,7 @@ const Item = ({ itens }: Props) => {
 
   const addToCart = (comida: Food) => {
     dispatch(add(comida))
+    dispatch(open())
   }
 
   const getDescricao = (descricao: string) => {
@@ -80,7 +81,13 @@ const Item = ({ itens }: Props) => {
                     <p>{modal.descricao}</p>
                     <p>{modal.porcao}</p>
                     <Button
-                      onClick={() => addToCart(comida)}
+                      onClick={() => {
+                        addToCart(comida)
+                        setModal({
+                          ...modal,
+                          isVisible: false
+                        })
+                      }}
                       type="button"
                       title="Adicionar ao carrinho"
                     >

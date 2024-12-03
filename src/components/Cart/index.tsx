@@ -4,7 +4,7 @@ import { RootReducer } from '../../store'
 import Button from '../Button'
 import * as S from './styles'
 
-import { close } from '../../store/reducers/cart'
+import { close, remove } from '../../store/reducers/cart'
 import { formataPreco } from '../Item'
 
 const Cart = () => {
@@ -22,18 +22,22 @@ const Cart = () => {
     }, 0)
   }
 
+  const removeItem = (id: number) => {
+    dispatch(remove(id))
+  }
+
   return (
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
       <S.Sidebar>
         <ul>
           {itens.map((itens) => (
-            <S.CartItem>
+            <S.CartItem key={itens.id}>
               <img src={itens.foto} alt={itens.nome} />
               <div>
                 <h3>{itens.nome}</h3>
                 <p>{formataPreco(itens.preco)}</p>
-                <button type="button" />
+                <button onClick={() => removeItem(itens.id)} type="button" />
               </div>
             </S.CartItem>
           ))}

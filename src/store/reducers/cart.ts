@@ -23,6 +23,9 @@ const cartSlice = createSlice({
         alert('O prato já está no carrinho')
       }
     },
+    remove: (state, action: PayloadAction<number>) => {
+      state.itens = state.itens.filter((item) => item.id !== action.payload)
+    },
     open: (state) => {
       state.isOpen = true
     },
@@ -32,6 +35,6 @@ const cartSlice = createSlice({
   }
 })
 
-export const { add, open, close } = cartSlice.actions
+export const { add, open, close, remove } = cartSlice.actions
 
 export default cartSlice.reducer
