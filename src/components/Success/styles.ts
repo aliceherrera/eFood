@@ -21,47 +21,23 @@ export const Sidebar = styled.aside`
   z-index: 1;
   padding: 32px 8px 0;
   width: 360px;
+  color: ${colors.beige};
 
   h2 {
-    color: ${colors.beige};
     font-size: 16px;
     margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 22px;
+    margin: 16px 0;
   }
 
   ${ButtonContainer} {
     max-width: 100%;
     width: 100%;
     margin: 4px 0;
-  }
-`
-
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 16px 0 20px;
-  font-size: 14px;
-  font-weight: bold;
-  color: ${colors.beige};
-
-  .display-block {
-    display: flex;
-    justify-content: space-between;
-
-    div {
-      display: flex;
-      flex-direction: column;
-      max-width: 155px;
-    }
-  }
-
-  input {
-    background-color: ${colors.beige};
-    height: 32px;
-    border: 1px solid ${colors.beige};
-    margin-top: 8px;
-    margin-bottom: 8px;
-    padding: 8px;
-    font-weight: bold;
-    color: ${colors.gray};
   }
 `

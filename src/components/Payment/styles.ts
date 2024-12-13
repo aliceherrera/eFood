@@ -2,6 +2,10 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
+type InputGroupProps = {
+  maxWidth?: string
+}
+
 export const CartContainer = styled.div`
   position: fixed;
   top: 0;
@@ -50,7 +54,6 @@ export const InputContainer = styled.div`
     div {
       display: flex;
       flex-direction: column;
-      max-width: 155px;
     }
   }
 
@@ -64,4 +67,9 @@ export const InputContainer = styled.div`
     font-weight: bold;
     color: ${colors.gray};
   }
+`
+
+export const InputGroup = styled.div<InputGroupProps>`
+  max-width: ${(props) => props.maxWidth || '155px'};
+  width: 100%;
 `

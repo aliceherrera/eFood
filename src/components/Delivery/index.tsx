@@ -2,7 +2,7 @@ import Button from '../Button'
 import * as S from './styles'
 
 const Delivery = () => (
-  <S.CartContainer>
+  <S.CartContainer className="">
     <S.Sidebar>
       <h2>Entrega</h2>
       <form>
