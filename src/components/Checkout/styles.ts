@@ -2,7 +2,21 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
-export const CartContainer = styled.div`
+type InputGroupProps = {
+  maxWidth?: string
+}
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: ${colors.black}; */
+  /* opacity: 0.8; */
+`
+
+export const CartContainer = styled.form`
   position: fixed;
   top: 0;
   left: 0;
@@ -19,7 +33,7 @@ export const CartContainer = styled.div`
 export const Sidebar = styled.aside`
   background-color: ${colors.salmon};
   z-index: 1;
-  padding: 32px 8px 0;
+  padding: 24px 8px 0;
   width: 360px;
 
   h2 {
@@ -32,6 +46,14 @@ export const Sidebar = styled.aside`
     max-width: 100%;
     width: 100%;
     margin: 4px 0;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 22px;
+    margin: 16px 0;
+    color: ${colors.beige};
   }
 `
 
@@ -50,7 +72,6 @@ export const InputContainer = styled.div`
     div {
       display: flex;
       flex-direction: column;
-      max-width: 155px;
     }
   }
 
@@ -64,4 +85,8 @@ export const InputContainer = styled.div`
     font-weight: bold;
     color: ${colors.gray};
   }
+`
+export const InputGroup = styled.div<InputGroupProps>`
+  max-width: ${(props) => props.maxWidth || '155px'};
+  width: 100%;
 `

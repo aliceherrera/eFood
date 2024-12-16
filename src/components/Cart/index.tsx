@@ -5,6 +5,7 @@ import Button from '../Button'
 import * as S from './styles'
 
 import { close, remove } from '../../store/reducers/cart'
+import { open } from '../../store/reducers/checkout'
 import { formataPreco } from '../Item'
 
 const Cart = () => {
@@ -26,6 +27,10 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
+  const openChechout = () => {
+    dispatch(open())
+  }
+
   return (
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
@@ -45,7 +50,11 @@ const Cart = () => {
         <S.Price>
           Valor Total <span>{formataPreco(getTotalPrice())}</span>
         </S.Price>
-        <Button title="Clique aqui para continuar com a compra" type="button">
+        <Button
+          onClick={openChechout}
+          title="Clique aqui para continuar com a compra"
+          type="button"
+        >
           Continuar com a entrega
         </Button>
       </S.Sidebar>
