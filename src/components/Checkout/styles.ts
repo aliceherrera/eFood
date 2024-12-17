@@ -84,6 +84,10 @@ export const InputContainer = styled.div`
     padding: 8px;
     font-weight: bold;
     color: ${colors.gray};
+
+    &.error {
+      border: 2px solid red;
+    }
   }
 `
 export const InputGroup = styled.div<InputGroupProps>`
