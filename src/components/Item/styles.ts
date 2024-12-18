@@ -107,14 +107,19 @@ export const Close = styled.img`
 `
 export const ContainerModal = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
   display: none;
 
   &.visivel {
     display: flex;
   }
+`
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${colors.black};
+  opacity: 0.8;
 `

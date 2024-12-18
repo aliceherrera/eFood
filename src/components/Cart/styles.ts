@@ -4,7 +4,7 @@ import { ButtonContainer } from '../Button/styles'
 import trash from '../../assets/images/lixeira-de-reciclagem 1.png'
 
 export const Overlay = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -82,4 +82,9 @@ export const Price = styled.p`
   display: flex;
   justify-content: space-between;
   padding: 24px 0 8px;
+`
+export const Empty = styled.p`
+  color: ${colors.beige};
+  display: flex;
+  justify-content: center;
 `

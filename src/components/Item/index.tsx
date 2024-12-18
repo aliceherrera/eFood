@@ -2,19 +2,12 @@ import { useState } from 'react'
 import Button from '../Button'
 import * as S from './styles'
 import close from '../../assets/images/close 1.png'
-import { Food } from '../../pages/Home'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils'
 
 type Props = {
   itens: Food[]
-}
-
-export const formataPreco = (preco: number) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
 }
 
 const Item = ({ itens }: Props) => {
@@ -72,41 +65,51 @@ const Item = ({ itens }: Props) => {
           </S.Card>
 
           {modal.isVisible && modal.id === comida.id && (
-            <S.ContainerModal className="visivel">
-              <S.Modal>
-                <S.ModalContent>
-                  <img src={modal.foto} alt={modal.nome} />
-                  <S.Infos>
-                    <h2>{modal.nome}</h2>
-                    <p>{modal.descricao}</p>
-                    <p>{modal.porcao}</p>
-                    <Button
-                      onClick={() => {
-                        addToCart(comida)
-                        setModal({
-                          ...modal,
-                          isVisible: false
-                        })
-                      }}
-                      type="button"
-                      title="Adicionar ao carrinho"
-                    >
-                      Adicionar ao carrinho - {formataPreco(modal.preco)}
-                    </Button>
-                    <S.Close
-                      src={close}
-                      alt="fechar"
-                      onClick={() =>
-                        setModal({
-                          ...modal,
-                          isVisible: false
-                        })
-                      }
-                    />
-                  </S.Infos>
-                </S.ModalContent>
-              </S.Modal>
-            </S.ContainerModal>
+            <>
+              <S.Overlay
+                onClick={() =>
+                  setModal({
+                    ...modal,
+                    isVisible: false
+                  })
+                }
+              />
+              <S.ContainerModal className="visivel">
+                <S.Modal>
+                  <S.ModalContent>
+                    <img src={modal.foto} alt={modal.nome} />
+                    <S.Infos>
+                      <h2>{modal.nome}</h2>
+                      <p>{modal.descricao}</p>
+                      <p>{modal.porcao}</p>
+                      <Button
+                        onClick={() => {
+                          addToCart(comida)
+                          setModal({
+                            ...modal,
+                            isVisible: false
+                          })
+                        }}
+                        type="button"
+                        title="Adicionar ao carrinho"
+                      >
+                        Adicionar ao carrinho - {parseToBrl(modal.preco)}
+                      </Button>
+                      <S.Close
+                        src={close}
+                        alt="fechar"
+                        onClick={() =>
+                          setModal({
+                            ...modal,
+                            isVisible: false
+                          })
+                        }
+                      />
+                    </S.Infos>
+                  </S.ModalContent>
+                </S.Modal>
+              </S.ContainerModal>
+            </>
           )}
         </ul>
       ))}

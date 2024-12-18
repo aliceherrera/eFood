@@ -21,6 +21,6 @@ const checkoutSlice = createSlice({
   }
 })
 
-export const { open } = checkoutSlice.actions
+export const { open, close } = checkoutSlice.actions
 
 export default checkoutSlice.reducer
