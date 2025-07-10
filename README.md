@@ -32,9 +32,10 @@ npm install
 
 # Rode a aplicação
 npm start
+```
 
 A aplicação estará disponível em http://localhost:3000
-```
+
 
 ## 📌 Observações
 
